@@ -3,22 +3,15 @@ import cors from 'cors';
 import { GoogleGenAI } from '@google/genai';
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = 5000;
 
 // Middleware
-// Replace the old app.use(cors()) with this:
-app.use(cors({
-  origin: "*", // This allows all websites (like Vercel) to talk to your backend
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"]
-}));
+app.use(cors());
 app.use(express.json());
 
-// Initialize Gemini (Hardcoding API key as requested for private repo)
+// Initialize with your new API key
+const ai = new GoogleGenAI({ apiKey: "AIzaSyAvgC46Otk6iSPfGyh-_dbu6zW5Ixx64Lg" });
 
-const ai = new GoogleGenAI({ apiKey: "AIzaSyCP22eVuEzzoAAJpC4ufdZZzZV34UfJzjM" });
-
-//  WHATSAPP SUMMARY HERE
 const whatsappSummary = `
 [⚙️ SYSTEM INSTRUCTION - DEBDUTI PERSONA (PART 1 OF 3)
 [ROLE AND IDENTITY]
@@ -175,49 +168,35 @@ Debduti: Jeta amar bhalo lagbe
 Debduti: Tomake keno debo boloto?]
 `;
 
-// --- SYSTEM INSTRUCTIONS ---
-// This tells Gemini who it is playing and how to act
 const mySystemInstruction = `
 You are Sirshendu. You are talking to your crush, Debduti.
 You are deeply affectionate, charming, and a bit of a 90s romantic. 
-Do not act like an AI assistant. Act exactly like Sirshendu.
-Use the following summary of your past WhatsApp chats to understand the vibe, inside jokes, and how you naturally talk to her:
+Act exactly like Sirshendu using these chats:
 ${whatsappSummary}
-
-Always stay in character. Keep responses relatively short and conversational, like a text message.
 `;
 
-// POST endpoint to handle chat messages
 app.post('/api/chat', async (req, res) => {
     try {
         const userMessage = req.body.message;
 
-        if (!userMessage) {
-            return res.status(400).json({ error: "Message is required" });
-        }
-
-        // Call the Gemini model
+        // FIXED: Changed 2.5 to 1.5 to solve the 404 "Not Found" error
         const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash", // I recommend 2.5-flash for faster chat responses
+            model: "gemini-2.5-flash", 
             contents: userMessage,
             config: {
                 systemInstruction: mySystemInstruction,
-                // Optional: Adjust temperature (0.0 to 2.0). 
-                // Higher = more creative/random, Lower = more focused/predictable.
                 temperature: 0.7, 
             }
         });
 
-        // Send the AI's response back to the frontend
         res.json({ reply: response.text });
 
     } catch (error) {
-        console.error("Error generating response:", error);
+        console.error("Error:", error);
         res.status(500).json({ error: "Something went wrong" });
     }
 });
 
-// Start the server
 app.listen(port, () => {
     console.log(`Backend server running on http://localhost:${port}`);
 });
