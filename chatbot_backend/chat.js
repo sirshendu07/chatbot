@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Initialize with your new API key
-const ai = new GoogleGenAI({ apiKey: "AIzaSyCZq-y_jlABvkncrcJnqqhb1JjDlVSLff4" });
+const ai = new GoogleGenAI({ apiKey: "AIzaSyAOQV3BhbyNVQPzhmsfe0nizxvbs7dV8e0" });
 
 
 
