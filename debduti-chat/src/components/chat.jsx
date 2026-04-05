@@ -40,8 +40,8 @@ const Chat = ({ onNavigate }) => {
     setIsTyping(true); // Show "typing" indicator
 
     try {
-      // 2. Send the message to your backend
-      const response = await fetch('http://localhost:5000/api/chat', {
+      // 2. Send the message to  backend
+      const response = await fetch('https://chatbot-ebk7.onrender.com/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
