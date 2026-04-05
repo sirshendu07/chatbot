@@ -62,7 +62,7 @@ app.post('/api/chat', async (req, res) => {
 
         // FIXED: Changed 2.5 to 1.5 to solve the 404 "Not Found" error
         const response = await ai.models.generateContent({
-            model: "gemini-1.5-flash", 
+            model: "gemini-2.5-flash", 
             contents: userMessage,
             config: {
                 systemInstruction: mySystemInstruction,
