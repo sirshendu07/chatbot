@@ -6,7 +6,12 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+// Replace the old app.use(cors()) with this:
+app.use(cors({
+  origin: "*", // This allows all websites (like Vercel) to talk to your backend
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
+}));
 app.use(express.json());
 
 // Initialize Gemini (Hardcoding API key as requested for private repo)
