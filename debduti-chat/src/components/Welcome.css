@@ -1,0 +1,128 @@
+/* src/components/Welcome.css */
+
+.welcome-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Deep cosmic gradient background */
+  background: radial-gradient(circle at center, #1a1b26 0%, #11121a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add some subtle deep background color washes */
+.welcome-container::before {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+  top: -25%;
+  left: -25%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.floating-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.glass-card {
+  position: relative;
+  z-index: 10;
+  /* Dark Glassmorphism */
+  background: rgba(23, 23, 33, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  /* Luminous border glow */
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 32px;
+  padding: 4rem;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  /* Deep box shadow with a touch of colorful ambient light */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(59, 130, 246, 0.05);
+}
+
+.title-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  /* Colorful Gradient Text for the Name */
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+/* Main Heart near the name - Make it Pop! */
+.heart-pop {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+}
+
+.quote {
+  /* Teal text for readability and color */
+  color: #a7f3d0;
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.chat-button {
+  /* Rich Royal Blue Gradient Button */
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  /* Stronger box shadow for the button */
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.5);
+  transition: box-shadow 0.3s ease;
+}
+
+.chat-button:hover {
+  /* Intensify the glow on hover */
+  box-shadow: 0 15px 35px -5px rgba(37, 99, 235, 0.7);
+}
+
+.availability {
+  margin-top: 2rem;
+  /* Lighter vibrant blue for the footer */
+  color: #60a5fa;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  opacity: 0.8;
+}

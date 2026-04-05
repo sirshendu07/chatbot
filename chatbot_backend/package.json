@@ -1,0 +1,19 @@
+{
+  "name": "chatbot_backend",
+  "version": "1.0.0",
+  "main": "chat.js",
+  "type": "module",
+  "scripts": {
+    "start": "node chat.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google/genai": "^1.48.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
