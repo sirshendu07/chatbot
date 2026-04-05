@@ -11,7 +11,7 @@ const Chat = ({ onNavigate }) => {
   const [messages, setMessages] = useState([
     { 
       id: 1, 
-      text: "Hey Debduti! So glad you clicked the button. How's your day going? 💙", 
+      text: "Hey! So glad you clicked the button. How's your day going? 💙", 
       sender: 'ai', 
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) 
     }

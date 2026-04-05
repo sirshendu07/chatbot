@@ -88,7 +88,7 @@ const Welcome = ({ onNavigate }) => {
             {/* The main name heart is a vibrant Luminous Pink */}
             <Heart fill="#ec4899" color="#ec4899" size={36} style={{ filter: 'drop-shadow(0 0 10px rgba(236, 72, 153, 0.6))' }} />
           </motion.div>
-          <h1 className="title">Hi, DEBDUTI</h1>
+          <h1 className="title">Hi, JENIFER</h1>
         </motion.div>
         
         <motion.p className="quote" variants={itemVariants}>
