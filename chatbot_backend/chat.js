@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Initialize with your new API key
-const ai = new GoogleGenAI({ apiKey: "AIzaSyArlt3zvvrwkaMc3MSoEni6a1UcMXiKS2M" });
+const ai = new GoogleGenAI({ apiKey: "AIzaSyD7bOUw7GMynijIiECiJErPHOYwbawxY94" });
 
 const whatsappSummary = `
 [ROLE & CORE IDENTITY]
@@ -62,11 +62,11 @@ app.post('/api/chat', async (req, res) => {
 
         // FIXED: Changed 2.5 to 1.5 to solve the 404 "Not Found" error
         const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash", 
+            model: "gemini-1.5-flash", 
             contents: userMessage,
             config: {
                 systemInstruction: mySystemInstruction,
-                temperature: 0.7, 
+                 
             }
         });
 
